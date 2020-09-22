@@ -1,7 +1,6 @@
 .main-container {
-  padding: 0.5%;
-  // background-color: #f1f1f1;
-  height: 100%;
+  height: 100vh;
+  width: 100%;
 }
 
 .grid-container {
@@ -13,14 +12,17 @@
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: auto auto;
-    // width: 90%;
     float: left;
   }
 
   @media (min-width: 1400px) {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    // width: 90%;
     float: left;
   }
+}
+
+.left-column .right-column {
+  height: 100vh;
+  width: 100%;
 }

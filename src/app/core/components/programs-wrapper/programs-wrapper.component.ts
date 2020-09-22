@@ -20,11 +20,7 @@ export class ProgramsWrapperComponent implements OnInit, OnDestroy {
 
   spacexPrograms: Observable<SpacexProgram[]> = undefined;
 
-  constructor(
-    private _spacexService: SpacexService,
-    private _router: Router,
-    private _route: ActivatedRoute,
-  ) {
+  constructor(private _spacexService: SpacexService, private _router: Router, private _route: ActivatedRoute) {
     this._currentYear = new Date().getFullYear();
     this._defaultLimit = environment.limit;
     this._subscription = new Subscription();
@@ -48,11 +44,10 @@ export class ProgramsWrapperComponent implements OnInit, OnDestroy {
       this._route.queryParams.subscribe((params) => {
         this._spacexService.getSpaceXPrograms(
           _.get(params, 'launchYear', this._currentYear),
-          _.get(params, 'launchSuccess', ''),
-          _.get(params, 'landSuccess', ''),
+          _.get(params, 'launchSuccessful', ''),
+          _.get(params, 'landSuccessful', ''),
           _.get(params, 'limit', this._defaultLimit),
         );
-        console.log(this.spacexPrograms);
       }),
     );
   }

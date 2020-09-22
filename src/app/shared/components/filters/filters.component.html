@@ -1,7 +1,13 @@
 <div class="filter-main-container">
-  <strong>Filters</strong>
+  <div><strong>Filters&nbsp;</strong> <button (click)="onReset()">Reset Filters</button></div>
   <div class="filter-container">
-    <input type="text" placeholder="Launch Year" aria-label="Number" />
+    <input
+      type="text"
+      placeholder="Launch Year"
+      [(ngModel)]="launchYear"
+      (ngModelChange)="updateLaunchYear$.next($event)"
+      autocomplete="off"
+    />
     <div class="grid-container">
       <ul *ngFor="let year of years">
         <li>
@@ -11,34 +17,66 @@
       </ul>
     </div>
   </div>
-  <!-- <div class="filter-type">
-    <input type="text" placeholder="Successfull Launch" aria-label="Number" />
+  <div class="filter-container">
+    <input
+      type="text"
+      placeholder="Successfull Launch"
+      [(ngModel)]="launchSuccess"
+      (ngModelChange)="updateLaunchSuccess$.next($event)"
+      autocomplete="off"
+    />
     <ul class="grid-container">
       <li>
-        <input name="launchSuccessfull" type="radio" value="true" id="radio_launch_true" /><label
-          for="radio_launch_true"
-          >True</label
-        >
+        <input
+          name="launchSuccessfull"
+          type="radio"
+          value="true"
+          id="radio_launch_true"
+          [(ngModel)]="launchSuccess"
+        /><label for="radio_launch_true" (click)="getSpaceXPrograms(undefined, 'true')">True</label>
       </li>
       <li>
-        <input name="launchSuccessfull" type="radio" value="false" id="radio_launch_false" />
-        <label for="radio_launch_false">False</label>
+        <input
+          name="launchSuccessfull"
+          type="radio"
+          value="false"
+          id="radio_launch_false"
+          [(ngModel)]="launchSuccess"
+        />
+        <label for="radio_launch_false" (click)="getSpaceXPrograms(undefined, 'false')">False</label>
       </li>
     </ul>
   </div>
-  <div class="filter-type">
-    <input type="text" placeholder="Successfull Landing" aria-label="Number" />
+  <div class="filter-container">
+    <input
+      type="text"
+      placeholder="Successfull Landing"
+      [(ngModel)]="landSuccess"
+      (ngModelChange)="updateLandSuccess$.next($event)"
+      autocomplete="off"
+    />
     <ul class="grid-container">
       <li>
-        <input name="launchSuccessfull" type="radio" value="true" id="radio_land_true" /><label
+        <input name="landSuccessfull" type="radio" value="true" id="radio_land_true" [(ngModel)]="landSuccess" /><label
           for="radio_land_true"
+          (click)="getSpaceXPrograms(undefined, undefined, 'true')"
           >True</label
         >
       </li>
       <li>
-        <input name="launchSuccessfull" type="radio" value="false" id="radio_land_false" />
-        <label for="radio_land_false">False</label>
+        <input name="landSuccessfull" type="radio" value="false" id="radio_land_false" [(ngModel)]="landSuccess" />
+        <label for="radio_land_false" (click)="getSpaceXPrograms(undefined, undefined, 'false')">False</label>
       </li>
     </ul>
-  </div> -->
+  </div>
+  <div class="filter-container">
+    <label for="limit">Choose limit:</label>
+    <select (change)="onLimitChange($event.target.value)" name="limit" id="limit" [(ngModel)]="limit">
+      <option value="8">8</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
 </div>
