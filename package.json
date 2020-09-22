@@ -4,12 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --prod && npm run prerender",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run spacex-launch-program:serve-ssr",
-    "preserve:ssr": "ng build; npm run prerender",
     "serve:ssr": "node dist/spacex-launch-program/server/main.js",
     "build:ssr": "ng build --prod && ng run spacex-launch-program:server:production",
     "prerender": "ng run spacex-launch-program:prerender"
@@ -56,5 +55,8 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "engines": {
+    "node": "12.16.2"
   }
 }
