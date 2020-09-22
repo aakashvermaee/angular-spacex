@@ -1,0 +1,44 @@
+<div class="filter-main-container">
+  <strong>Filters</strong>
+  <div class="filter-container">
+    <input type="text" placeholder="Launch Year" aria-label="Number" />
+    <div class="grid-container">
+      <ul *ngFor="let year of years">
+        <li>
+          <input name="launchSuccessfull" type="radio" value="false" [id]="year" />
+          <label for="radio" (click)="getSpaceXPrograms(year)">{{ year }}</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="filter-type">
+    <input type="text" placeholder="Successfull Launch" aria-label="Number" />
+    <ul class="grid-container">
+      <li>
+        <input name="launchSuccessfull" type="radio" value="true" id="radio_launch_true" /><label
+          for="radio_launch_true"
+          >True</label
+        >
+      </li>
+      <li>
+        <input name="launchSuccessfull" type="radio" value="false" id="radio_launch_false" />
+        <label for="radio_launch_false">False</label>
+      </li>
+    </ul>
+  </div>
+  <div class="filter-type">
+    <input type="text" placeholder="Successfull Landing" aria-label="Number" />
+    <ul class="grid-container">
+      <li>
+        <input name="launchSuccessfull" type="radio" value="true" id="radio_land_true" /><label
+          for="radio_land_true"
+          >True</label
+        >
+      </li>
+      <li>
+        <input name="launchSuccessfull" type="radio" value="false" id="radio_land_false" />
+        <label for="radio_land_false">False</label>
+      </li>
+    </ul>
+  </div> -->
+</div>
