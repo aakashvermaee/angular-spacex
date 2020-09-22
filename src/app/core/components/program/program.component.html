@@ -1,1 +1,17 @@
-<p>program works!</p>
+<div class="card">
+  <div class="image-container"><img [src]="program.image" [alt]="program.name" /></div>
+  <p>{{ program.name }}</p>
+  <strong>Mission Ids:</strong>
+  <ul *ngFor="let missionId of program.missionIds">
+    <li>{{ missionId }}</li>
+  </ul>
+  <div>
+    <strong>Launch Year:</strong><span>{{ program.launchYear }}</span>
+  </div>
+  <div>
+    <strong>Successful Launch:</strong><span>{{ program.successfulLaunch }}</span>
+  </div>
+  <div>
+    <strong>Successful Landing:</strong><span>{{ program.successfulLanding }}</span>
+  </div>
+</div>

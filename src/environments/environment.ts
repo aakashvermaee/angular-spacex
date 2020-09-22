@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   spacex_base_uri: 'https://api.spaceXdata.com/v3/launches',
-  limit: 100,
+  limit: 8,
 };
 
 /*

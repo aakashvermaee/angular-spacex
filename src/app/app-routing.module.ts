@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
+  {
+    path: '?/:launchYear/:launchSuccessful/:landSuccessful/:limit',
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({

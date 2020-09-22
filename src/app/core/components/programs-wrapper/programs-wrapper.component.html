@@ -1,3 +1,5 @@
 <div class="programs-container">
-  <p>wrapper</p>
+  <ng-container *ngFor="let spacexProgram of spacexPrograms | async">
+    <app-program [program]="spacexProgram"></app-program>
+  </ng-container>
 </div>

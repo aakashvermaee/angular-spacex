@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpacexService } from '../../services/spacex.service';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,7 +11,7 @@ export class FiltersComponent implements OnInit {
   years: number[] = [];
   limit: number = environment.limit;
 
-  constructor(private _spacexService: SpacexService) {}
+  constructor(private _router: Router) {}
 
   ngOnInit(): void {
     this.generateYearRange();
@@ -33,6 +33,13 @@ export class FiltersComponent implements OnInit {
     landSuccess?: boolean,
     limit?: number,
   ) {
-    this._spacexService.getSpaceXPrograms(launchYear, launchSuccess, landSuccess, this.limit);
+    this._router.navigate([''], {
+      queryParams: {
+        launchYear,
+        launchSuccessful: launchSuccess || '',
+        landSuccessful: landSuccess || '',
+        limit: limit || this.limit,
+      },
+    });
   }
 }

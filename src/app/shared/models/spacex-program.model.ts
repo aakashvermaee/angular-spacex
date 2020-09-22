@@ -8,6 +8,7 @@ export class SpacexProgram implements IDeserialzable {
   launchYear?: string;
   successfulLaunch?: boolean;
   successfulLanding?: boolean;
+  image?: string;
 
   deserialize(input: any): this {
     this.name = this.getName(input);
@@ -15,6 +16,7 @@ export class SpacexProgram implements IDeserialzable {
     this.launchYear = _.get(input, 'launch_year', 'NA');
     this.successfulLaunch = _.get(input, 'launch_success');
     this.successfulLanding = _.get(input, 'rocket.first_stage.cores[0].land_success');
+    this.image = _.get(input, 'links.mission_patch_small', '');
 
     return this;
   }

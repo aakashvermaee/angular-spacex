@@ -1,10 +1,26 @@
 .main-container {
   padding: 0.5%;
-  background-color: #f1f1f1;
+  // background-color: #f1f1f1;
   height: 100%;
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
+  @media (min-width: 700px) {
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    // width: 90%;
+    float: left;
+  }
+
+  @media (min-width: 1400px) {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    // width: 90%;
+    float: left;
+  }
 }
